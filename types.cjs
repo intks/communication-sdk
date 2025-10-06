@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});var u=(t=>(t.MuteAudio="MUTE_AUDIO",t.UnmuteAudio="UNMUTE_AUDIO",t.MuteVideo="MUTE_VIDEO",t.UnmuteVideo="UNMUTE_VIDEO",t.StartPublishing="START_PUBLISHING",t.StopPublishing="STOP_PUBLISHING",t))(u||{});exports.CommandType=u;

@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const e=require("./communication.cjs"),o=require("./types.cjs");exports.CommunicationSDK=e.CommunicationSDK;exports.CommandType=o.CommandType;
