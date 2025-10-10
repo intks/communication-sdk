@@ -1,8 +1,7 @@
 import { RemoteCommand, SDKCallbacks, SDKConfig } from './types';
 export interface ParticipantInfo {
     id: string;
-    userId: string;
-    role: string;
+    role: 'admin' | 'user';
     isPublishing: boolean;
 }
 interface CommunicationSDKInterface {
@@ -14,8 +13,9 @@ interface CommunicationSDKInterface {
     setLocalAudioEnabled(enabled: boolean): void;
     setLocalVideoEnabled(enabled: boolean): void;
     getParticipants(): ParticipantInfo[];
+    getSelfId(): string | null;
     leaveStage(): void;
-    setParticipantSubscription(participantId: string, prefs: {
+    setParticipantSubscription(participantId: string, preferences: {
         video?: boolean;
         audio?: boolean;
     }): void;
@@ -30,9 +30,9 @@ interface CommunicationSDKInterface {
     getParticipantVolume(participantId: string): number;
     getParticipantCanvases(): Map<string, HTMLCanvasElement>;
     getParticipantCanvas(participantId: string): HTMLCanvasElement | null;
-    createCustomParticipantCanvas(participantId: string, container: HTMLElement): HTMLCanvasElement;
-    removeCustomParticipantCanvas(participantId: string): void;
-    broadcastCommandViaSei(command: RemoteCommand, repeatCount?: number): Promise<boolean>;
+    createParticipantCanvas(participantId: string, container: HTMLElement): HTMLCanvasElement;
+    removeParticipantCanvas(participantId: string): void;
+    broadcastCommand(command: RemoteCommand, repeatCount?: number): Promise<boolean>;
 }
 export declare class CommunicationSDK implements CommunicationSDKInterface {
     private config;
@@ -54,8 +54,9 @@ export declare class CommunicationSDK implements CommunicationSDKInterface {
     setLocalAudioEnabled(enabled: boolean): void;
     setLocalVideoEnabled(enabled: boolean): void;
     getParticipants(): ParticipantInfo[];
+    getSelfId(): string | null;
     leaveStage(): void;
-    setParticipantSubscription(participantId: string, prefs: {
+    setParticipantSubscription(participantId: string, preferences: {
         video?: boolean;
         audio?: boolean;
     }): void;
@@ -70,9 +71,11 @@ export declare class CommunicationSDK implements CommunicationSDKInterface {
     getParticipantVolume(participantId: string): number;
     getParticipantCanvases(): Map<string, HTMLCanvasElement>;
     getParticipantCanvas(participantId: string): HTMLCanvasElement | null;
-    createCustomParticipantCanvas(participantId: string, container: HTMLElement): HTMLCanvasElement;
-    removeCustomParticipantCanvas(participantId: string): void;
-    broadcastCommandViaSei(command: RemoteCommand, repeatCount?: number): Promise<boolean>;
+    createParticipantCanvas(participantId: string, container: HTMLElement): HTMLCanvasElement;
+    removeParticipantCanvas(participantId: string): void;
+    broadcastCommand(command: RemoteCommand, repeatCount?: number): Promise<boolean>;
+    private getLocalStreamStatus;
+    private updateParticipantStatus;
     private handleParticipantJoined;
     private handleParticipantLeft;
     private handleParticipantStreamsAdded;

@@ -11,7 +11,7 @@ export declare class RenderManager {
     private targetFps;
     private isSafari;
     constructor(config: SDKConfig, callbacks: SDKCallbacks, mediaManager: MediaManager);
-    addParticipant(id: string): void;
+    addParticipant(): void;
     removeParticipant(id: string): void;
     createCanvas(id: string, container: HTMLElement): HTMLCanvasElement;
     removeCanvas(id: string): void;
@@ -19,6 +19,8 @@ export declare class RenderManager {
     private startRenderLoop;
     private stopRenderLoop;
     private renderCanvas;
+    private renderAvatar;
+    private renderBottomInfo;
     getCanvases(): Map<string, HTMLCanvasElement>;
     getCanvas(id: string): HTMLCanvasElement | null;
     cleanup(): void;

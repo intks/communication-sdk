@@ -8,7 +8,6 @@ export declare class StageManager {
     private publishManager;
     private subscriptionManager;
     private stage;
-    private strategyRefreshTimerId;
     private handlers;
     constructor(config: SDKConfig, callbacks: SDKCallbacks, publishManager: PublishManager, subscriptionManager: SubscriptionManager);
     setEventHandlers(handlers: typeof this.handlers): void;

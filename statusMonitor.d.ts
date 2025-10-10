@@ -1,12 +1,12 @@
 import { MediaManager } from './mediaManager';
-import { SubscriptionManager } from './subscriptionManager';
+import { ParticipantManager } from './participantManager';
 import { SDKCallbacks } from './types';
 export declare class StatusMonitor {
     private callbacks;
     private mediaManager;
-    private subscriptionManager;
+    private participantManager;
     private intervalId;
-    constructor(callbacks: SDKCallbacks, mediaManager: MediaManager, subscriptionManager: SubscriptionManager);
+    constructor(callbacks: SDKCallbacks, mediaManager: MediaManager, participantManager: ParticipantManager);
     start(): void;
     stop(): void;
 }

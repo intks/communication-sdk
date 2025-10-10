@@ -1,7 +1,7 @@
 import { StageParticipantInfo, SubscribeType } from 'amazon-ivs-web-broadcast';
 export declare class SubscriptionManager {
     private subscriptions;
-    setSubscription(id: string, prefs: {
+    setSubscription(id: string, preferences: {
         video?: boolean;
         audio?: boolean;
     }): void;

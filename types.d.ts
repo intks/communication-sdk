@@ -6,9 +6,6 @@ export interface SDKConfig {
     videoInputDeviceId?: string;
     audioInputDeviceId?: string;
     localVideoElement?: HTMLVideoElement;
-    useMultipleCanvas?: boolean;
-    canvasContainerElement?: HTMLElement;
-    userId?: string;
     canvasConfig?: {
         width?: number;
         height?: number;
@@ -20,8 +17,7 @@ export declare enum CommandType {
     UnmuteAudio = "UNMUTE_AUDIO",
     MuteVideo = "MUTE_VIDEO",
     UnmuteVideo = "UNMUTE_VIDEO",
-    StartPublishing = "START_PUBLISHING",
-    StopPublishing = "STOP_PUBLISHING"
+    StatusUpdate = "STATUS_UPDATE"
 }
 export interface RemoteCommand {
     type: CommandType;
@@ -52,7 +48,7 @@ export interface SDKCallbacks {
     onStageLeft?: (reason?: string) => void;
     onParticipantMuted?: (participantId: string, type: 'audio' | 'video') => void;
     onParticipantUnmuted?: (participantId: string, type: 'audio' | 'video') => void;
-    onCommandReceived?: (command: RemoteCommand, fromParticipantId: string) => void;
+    onCommandReceived?: (command: RemoteCommand) => void;
     onStreamStatusChanged?: (participantId: string, status: StreamStatus) => void;
     onParticipantVolumeChanged?: (participantId: string, volume: number) => void;
     onParticipantCanvasCreated?: (participantId: string, canvas: HTMLCanvasElement) => void;

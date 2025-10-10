@@ -7,6 +7,7 @@ export declare class PublishManager {
     private localStream;
     private isPublishing;
     private isLocalAudioEnabled;
+    private isLocalVideoEnabled;
     private defaultVideoResolution;
     constructor(config: SDKConfig, callbacks: SDKCallbacks);
     startPublishing(): Promise<void>;
@@ -16,5 +17,7 @@ export declare class PublishManager {
     setLocalAudioEnabled(enabled: boolean): void;
     setLocalVideoEnabled(enabled: boolean): void;
     getStreams(): LocalStageStream[];
+    getRawVideoStream(): LocalStageStream | null;
     shouldPublish(): boolean;
+    getLocalStream(): MediaStream | null;
 }
