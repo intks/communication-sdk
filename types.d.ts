@@ -11,6 +11,7 @@ export interface SDKConfig {
         height?: number;
         style?: Partial<CSSStyleDeclaration>;
     };
+    username?: string;
 }
 export declare enum CommandType {
     MuteAudio = "MUTE_AUDIO",

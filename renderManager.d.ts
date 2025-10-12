@@ -20,7 +20,6 @@ export declare class RenderManager {
     private stopRenderLoop;
     private renderCanvas;
     private renderAvatar;
-    private renderBottomInfo;
     getCanvases(): Map<string, HTMLCanvasElement>;
     getCanvas(id: string): HTMLCanvasElement | null;
     cleanup(): void;
