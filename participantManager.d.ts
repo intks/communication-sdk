@@ -1,5 +1,4 @@
 import { StageParticipantInfo, StageStream } from 'amazon-ivs-web-broadcast';
-import { ParticipantInfo } from './communication';
 import { PublishManager } from './publishManager';
 export declare class ParticipantManager {
     private participants;
@@ -10,6 +9,6 @@ export declare class ParticipantManager {
     checkSelfParticipant(participant: StageParticipantInfo, streams: StageStream[]): void;
     add(participant: StageParticipantInfo): void;
     remove(id: string): void;
-    getParticipants(): ParticipantInfo[];
+    getParticipants(): IterableIterator<StageParticipantInfo>;
     clear(): void;
 }

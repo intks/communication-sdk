@@ -5,8 +5,11 @@ export declare class StatusMonitor {
     private callbacks;
     private mediaManager;
     private participantManager;
-    private intervalId;
+    private animationId;
+    private lastUpdateTime;
+    private updateInterval;
     constructor(callbacks: SDKCallbacks, mediaManager: MediaManager, participantManager: ParticipantManager);
     start(): void;
     stop(): void;
+    private updateVolumes;
 }

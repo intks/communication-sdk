@@ -3,12 +3,8 @@ import { SDKCallbacks, SDKConfig } from './types';
 export declare class PublishManager {
     private config;
     private callbacks;
-    private localStreams;
-    private localStream;
+    private mediaStreams;
     private isPublishing;
-    private isLocalAudioEnabled;
-    private isLocalVideoEnabled;
-    private defaultVideoResolution;
     constructor(config: SDKConfig, callbacks: SDKCallbacks);
     startPublishing(): Promise<void>;
     stopPublishing(): void;

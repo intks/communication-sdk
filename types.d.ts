@@ -5,13 +5,11 @@ export interface SDKConfig {
     enableInBandMessaging?: boolean;
     videoInputDeviceId?: string;
     audioInputDeviceId?: string;
-    localVideoElement?: HTMLVideoElement;
     canvasConfig?: {
         width?: number;
         height?: number;
         style?: Partial<CSSStyleDeclaration>;
     };
-    username?: string;
 }
 export declare enum CommandType {
     MuteAudio = "MUTE_AUDIO",

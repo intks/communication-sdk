@@ -1,9 +1,6 @@
+import { StageParticipantInfo } from 'amazon-ivs-web-broadcast';
 import { RemoteCommand, SDKCallbacks, SDKConfig } from './types';
-export interface ParticipantInfo {
-    id: string;
-    role: 'admin' | 'user';
-    isPublishing: boolean;
-}
+export type ParticipantInfo = StageParticipantInfo;
 interface CommunicationSDKInterface {
     initialize(): Promise<void>;
     startPublishing(): Promise<void>;
@@ -12,17 +9,9 @@ interface CommunicationSDKInterface {
     toggleAudio(): void;
     setLocalAudioEnabled(enabled: boolean): void;
     setLocalVideoEnabled(enabled: boolean): void;
-    getParticipants(): ParticipantInfo[];
+    getParticipants(): IterableIterator<ParticipantInfo>;
     getSelfId(): string | null;
     leaveStage(): void;
-    setParticipantSubscription(participantId: string, preferences: {
-        video?: boolean;
-        audio?: boolean;
-    }): void;
-    getParticipantSubscription(participantId: string): {
-        video: boolean;
-        audio: boolean;
-    } | null;
     muteParticipantAudio(participantId: string): void;
     unmuteParticipantAudio(participantId: string): void;
     muteParticipantVideo(participantId: string): void;
@@ -40,7 +29,6 @@ export declare class CommunicationSDK implements CommunicationSDKInterface {
     private stageManager;
     private publishManager;
     private participantManager;
-    private subscriptionManager;
     private mediaManager;
     private commandManager;
     private renderManager;
@@ -53,17 +41,9 @@ export declare class CommunicationSDK implements CommunicationSDKInterface {
     toggleAudio(): void;
     setLocalAudioEnabled(enabled: boolean): void;
     setLocalVideoEnabled(enabled: boolean): void;
-    getParticipants(): ParticipantInfo[];
+    getParticipants(): IterableIterator<ParticipantInfo>;
     getSelfId(): string | null;
     leaveStage(): void;
-    setParticipantSubscription(participantId: string, preferences: {
-        video?: boolean;
-        audio?: boolean;
-    }): void;
-    getParticipantSubscription(participantId: string): {
-        video: boolean;
-        audio: boolean;
-    } | null;
     muteParticipantAudio(participantId: string): void;
     unmuteParticipantAudio(participantId: string): void;
     muteParticipantVideo(participantId: string): void;

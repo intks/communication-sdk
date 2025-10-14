@@ -1,6 +1,5 @@
 import { StageStream } from 'amazon-ivs-web-broadcast';
 import { ParticipantManager } from './participantManager';
-import { SubscriptionManager } from './subscriptionManager';
 import { SDKCallbacks, StreamStatus } from './types';
 interface ParticipantMediaData {
     remoteStream: MediaStream | null;
@@ -19,12 +18,11 @@ interface ParticipantMediaData {
 }
 export declare class MediaManager {
     private callbacks;
-    private subscriptionManager;
     private participantManager;
     private audioContext;
     private isSafari;
     media: Map<string, ParticipantMediaData>;
-    constructor(callbacks: SDKCallbacks, subscriptionManager: SubscriptionManager, participantManager: ParticipantManager);
+    constructor(callbacks: SDKCallbacks, participantManager: ParticipantManager);
     initializeParticipant(id: string): void;
     addStreams(id: string, streams: StageStream[]): MediaStream;
     removeStreams(id: string, streams: StageStream[]): boolean;
@@ -32,7 +30,6 @@ export declare class MediaManager {
     private updateVideoElement;
     private setupAudioPlayback;
     private cleanupAudio;
-    updateSubscription(id: string): void;
     updateStreamStatus(id: string): void;
     getVolume(id: string): number;
     getAnalyser(id: string): AnalyserNode | null;
