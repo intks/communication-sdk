@@ -1,12 +1,4 @@
 /**
- * Request media device permissions.
- * @returns {Object} The permitted media device permissions.
- */
-export declare function requestMediaDevicePermissions(): Promise<{
-    audio: boolean;
-    video: boolean;
-}>;
-/**
  * Open a video input device.
  * @param {string} deviceId The device ID.
  * @param {number} width The width.

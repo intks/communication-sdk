@@ -8,6 +8,7 @@ export declare class StatusMonitor {
     private animationId;
     private lastUpdateTime;
     private updateInterval;
+    private volumeThreshold;
     constructor(callbacks: SDKCallbacks, mediaManager: MediaManager, participantManager: ParticipantManager);
     start(): void;
     stop(): void;
